@@ -1,0 +1,270 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;700;900&display=swap");
+
+:root {
+  --black: #282828;
+  --blue: #0e94e8;
+  --gray: #bbbbbb;
+  --card-bg: #f8f8f8;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 62.5%;
+  background: url("images/bg-mobile.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body {
+  height: 100vh;
+  padding: 3.3em;
+}
+
+main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+main {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.card-item {
+  width: min(100%, 480px);
+  background-color: var(--card-bg);
+  border-radius: 1em;
+  padding: 2em 2.5em;
+  margin-bottom: 4em;
+  box-shadow: 0px 3px 11px rgba(0, 101, 165, 0.24);
+}
+
+.bag-img {
+  display: block;
+  max-width: 32rem;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.bag-title {
+  margin: 1em auto 0.464em auto;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--blue);
+}
+
+.bag-title span {
+  display: block;
+}
+
+.bag-summary {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--black);
+  opacity: 0.8;
+  line-height: 140%;
+}
+
+.color-container {
+  margin: 3.3em auto;
+}
+
+.color-container {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}
+
+.color-container .color-title {
+  font-size: 1.8rem;
+  color: var(--black);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.color-btn {
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: none;
+}
+
+.color-btn.biege {
+  background-color: #dbafa4;
+}
+
+.color-btn.red {
+  background-color: #86283b;
+}
+
+.color-btn.black {
+  background-color: #2c2e2f;
+}
+
+.color-btn.active {
+  outline-offset: 2px;
+  outline: 1px solid #2c2e2f;
+}
+
+.color-btn:not(.active):hover {
+  outline: 4px solid white;
+  box-shadow: 0px 0px 8px 0px rgba(40, 40, 40, 1);
+}
+
+.current-price {
+  font-size: 4rem;
+  font-weight: 900;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.3em;
+  margin-bottom: 0.825em;
+}
+
+.current-price .old-price {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--gray);
+  text-decoration: line-through;
+}
+
+.buy-btn {
+  cursor: pointer;
+  background-color: var(--black);
+  border: none;
+  font-family: "Kumbh Sans", sans-serif;
+  color: white;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 1.2em;
+  border-radius: 0.3em;
+  transition: all 100ms ease-in-out;
+}
+
+.buy-btn:hover,
+.buy-btn:focus {
+  background-color: rgba(60, 60, 60, 1);
+}
+
+.buy-btn:active {
+  background-color: black;
+}
+
+@media (min-width: 768px) {
+  html {
+    background: url("images/bg.svg");
+    background-position: center center;
+    background-repeat: repeat;
+    background-size: cover;
+    overflow: hidden;
+    background-attachment: fixed;
+  }
+
+  body {
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    display: grid;
+    place-content: center;
+  }
+
+  main {
+    height: 100vh;
+    width: 3000px;
+    display: flex;
+    flex-direction: row;
+    gap: 20em;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .card-item {
+    /* max-height: 55rem; */
+    width: min(100%, 75rem);
+    border-radius: 2rem;
+    margin-bottom: 0;
+    padding: 3.8em 6.8em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "hero-title hero-title hero-title"
+      "price img img"
+      "color img img"
+      "button img img";
+  }
+
+  .hero-title {
+    grid-area: hero-title;
+  }
+
+  .bag-title {
+    font-size: 4rem;
+    margin-top: 0;
+  }
+
+  .bag-summary {
+    font-size: 1.6rem;
+  }
+
+  .current-price {
+    grid-area: price;
+    font-size: 6rem;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 50%;
+    margin: 0.4em 0;
+  }
+
+  .color-container {
+    width: 100%;
+    grid-area: color;
+  }
+
+  .buy-btn {
+    grid-area: button;
+    font-size: 1.8rem;
+    max-width: 21.3rem;
+  }
+
+  .bag-img {
+    grid-area: img;
+    width: 100%;
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+
+  .old-price {
+    font-size: 2.8rem;
+  }
+
+  .color-title {
+    font-size: 1.8rem;
+  }
+
+  .color-btn {
+    width: 3.8rem;
+    height: 3.8rem;
+  }
+}
